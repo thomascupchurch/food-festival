@@ -20,6 +20,7 @@
     "bootstrap": "^4.6.0",
     "cli": "^1.0.1",
     "esm": "^3.2.25",
+    "image-webpack-loader": "^8.0.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0"
   },
