@@ -132,4 +132,4 @@ $(document).ready( function() {
     }
     )
 
-    module.exports = ""
+    module.exports = "dateConverter";
