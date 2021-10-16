@@ -1,9 +1,8 @@
 const webpack = require("webpack")
-const path = require("path");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const path = require("path");
 
-
-module.exports = {
+const config = {
   entry: {
     app: "./assets/js/script.js",
     events: "./assets/js/events.js",
@@ -11,13 +10,13 @@ module.exports = {
     tickets: "./assets/js/tickets.js"
   },
   output: {
-    path: path.resolve(__dirname + "/dist"),
     filename: "[name].bundle.js",
+    path: path.resolve(__dirname + "/dist")
   },
   module: {
     rules: [
       {
-        test: /\.jpg$/i,
+        test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
             loader: 'file-loader',
@@ -38,6 +37,15 @@ module.exports = {
       }
     ]
   },
+//   resolve:
+//   {
+//     fallback: 
+//   { "path": require.resolve("path-browserify"),
+//     "crypto": require.resolve("crypto-browserify"),
+
+// }
+//   },
+  
   plugins: [
     new webpack.ProvidePlugin({
       $: "jquery",
@@ -49,3 +57,20 @@ module.exports = {
   ],
   mode: "development"
 };
+
+module.exports = config;
+
+
+
+// fallback: {
+//   "fs": false,
+//   "tls": false,
+//   "net": false,
+//   "path": false,
+//   "zlib": false,
+//   "http": false,
+//   "https": false,
+//   "stream": false,
+//   "crypto": false,
+//   "crypto-browserify": require.resolve('crypto-browserify'), //if you want to use this module also don't forget npm i crypto-browserify 
+// } 
